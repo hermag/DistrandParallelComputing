@@ -1,0 +1,2 @@
+If we run threads without join.
+It will not wait for the thread, strated from another thread to be finished. It will finish it's work and let another thread run, as it is show in Python_Threads_without_join.py file.
