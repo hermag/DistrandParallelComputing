@@ -52,8 +52,8 @@ def print_numbers(name, count):
         print(f"Thread {name} says {i}")
         time.sleep(1)
 ```
-• Prints the thread name and a counter value
-• time.sleep(1) simulates work and allows context switching
+- Prints the thread name and a counter value
+- time.sleep(1) simulates work and allows context switching
 
 2️⃣ **Create and start threads in a loop**
 
@@ -69,9 +69,9 @@ for i in range(3):
     threads.append(thread)
     thread.start()
 ```
-•	The loop runs three times
-•	thread.start() launches each thread immediately
-•	Threads begin executing concurrently
+- The loop runs three times
+- thread.start() launches each thread immediately
+- Threads begin executing concurrently
 
 3️⃣ **Threads run concurrently**
 
@@ -85,8 +85,8 @@ The main thread waits for each worker thread to complete.
 for thread in threads:
     thread.join()
 ```
-•	join() blocks the main thread until a worker thread finishes
-•	Ensures the program does not exit early
+- join() blocks the main thread until a worker thread finishes
+- Ensures the program does not exit early
 
 5️⃣ **Resume execution in the main thread**
 
