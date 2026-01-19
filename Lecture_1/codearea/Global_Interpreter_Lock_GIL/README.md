@@ -184,3 +184,6 @@ Run 1: Threads happen to collide less → Result: 850,000
 Run 2: More collisions happen → Result: 650,000
 Run 3: Different timing → Result: 720,000
 It's never the same twice! This makes race conditions incredibly hard to debug.
+
+# Solution
+Check Counter_With_Lock.py
