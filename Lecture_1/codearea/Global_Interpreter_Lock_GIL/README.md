@@ -16,6 +16,7 @@ When you write counter += 1, you think it's one operation. It's actually THREE s
 pythoncounter += 1
 
 **Is actually:**
+```
 temp = counter      # Step 1: READ the current value
 temp = temp + 1     # Step 2: ADD 1 to it
 counter = temp      # Step 3: WRITE back the new value
