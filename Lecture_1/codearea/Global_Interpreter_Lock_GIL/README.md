@@ -7,14 +7,15 @@
 - A synchronization mechanism that ensures only one thread can access protected code at a time.
 
 **Check the Counter_Without_Lock.py file, there is an example of unlocked threads**
-Why Race Conditions Happens in Counter_Without_Lock.py the Detailed Explanation
+
+# Why Race Conditions Happens in Counter_Without_Lock.py the Detailed Explanation
 
 Why We Lose ~300,000-400,000 Increments
 The Root Cause: counter += 1 is NOT Atomic
 When you write counter += 1, you think it's one operation. It's actually THREE separate operations:
 pythoncounter += 1
 
-# Is actually:
+**Is actually:**
 temp = counter      # Step 1: READ the current value
 temp = temp + 1     # Step 2: ADD 1 to it
 counter = temp      # Step 3: WRITE back the new value
