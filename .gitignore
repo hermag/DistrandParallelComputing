@@ -1,0 +1,22 @@
+# JupyterLab
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# JupyterLab workspace and settings
+.jupyter/
+.local/share/jupyter/
+
+# JupyterLab trash
+.local/share/jupyter/lab/trash/
+
+# JupyterLab build artifacts
+/lab/
+jupyter_execute/
+
+# Jupyter cache (jupyter-cache extension)
+.jupyter_cache/
+
+# nbconvert output
+*.html
+*.pdf
+*.py~
