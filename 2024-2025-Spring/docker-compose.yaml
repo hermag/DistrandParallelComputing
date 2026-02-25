@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    ports:
+      - "9042:9042"   # CQL
+      - "9160:9160"   # Thrift
+    environment:
+      - CASSANDRA_CLUSTER_NAME=TestCluster
+      - CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+    networks:
+      - cassandra_spark_net
+
+  spark-master:
+    image: bitnami/spark:latest
+    container_name: spark-master
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "7077:7077"     # Spark master port
+      - "8080:8080"     # Spark master web UI
+    networks:
+      - cassandra_spark_net
+
+  spark-worker:
+    image: bitnami/spark:latest
+    container_name: spark-worker
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    depends_on:
+      - spark-master
+    ports:
+      - "8081:8081"     # Spark worker web UI
+    networks:
+      - cassandra_spark_net
+
+  spark-submit:
+    image: bitnami/spark:latest
+    container_name: spark-submit
+    entrypoint: ["sleep", "infinity"]  # Keep container running for manual submission
+    depends_on:
+      - spark-master
+      - cassandra
+    networks:
+      - cassandra_spark_net
+    volumes:
+      - ./app:/app  # Mount your Spark application code here
+
+volumes:
+  cassandra_data:
+
+networks:
+  cassandra_spark_net:
+    driver: bridge
