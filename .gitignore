@@ -20,3 +20,28 @@ jupyter_execute/
 *.html
 *.pdf
 *.py~
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Virtual Environment
+.venv/
+.environment/
+env/
+venv/
+ENV/
+
+# Python specific
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE specific (optional, add the ones you use)
+# .idea/  # Uncomment to ignore PyCharm/IntelliJ project files
+
+# Miscellaneous
+*.egg-info/
+.installed.cfg
+build/
+dist/
+
